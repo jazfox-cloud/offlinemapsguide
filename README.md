@@ -25,7 +25,7 @@ Recommended GitHub-backed Pages settings:
 
 - Build command: `pnpm run build`
 - Output directory: `dist`
-- Node version: `22.12.0`
+- Node version: `22.22.2`
 - Production branch: `main`
 
 Use a GitHub-connected Pages project instead of Direct Upload so production stays tied to the repository.

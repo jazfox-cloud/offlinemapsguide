@@ -1,0 +1,80 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { guides } from "@/data/guides";
+
+export function getStaticPaths() {
+  return guides.map((guide) => ({
+    params: { slug: guide.slug },
+    props: { guide }
+  }));
+}
+
+const { guide } = Astro.props;
+const related = guides
+  .filter((item) => item.slug !== guide.slug && (item.region === guide.region || item.category === guide.category))
+  .slice(0, 3);
+---
+
+<BaseLayout title={guide.title} description={guide.description} canonical={`/guides/${guide.slug}/`}>
+  <section class="article-hero">
+    <div class="container">
+      <div class="card-meta">
+        <span class="pill">{guide.region}</span>
+        <span class="pill">{guide.category}</span>
+        <span class="pill">Updated {guide.updated}</span>
+      </div>
+      <h1>{guide.title}</h1>
+      <p class="lede">{guide.description}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container article-shell">
+      <article class="article">
+        <h2>Quick answer</h2>
+        <p>
+          This guide is written as a practical preparation workflow, not as a claimed field test. Use it to configure your map apps before travel, understand the common failure points, and decide what to verify from official or recent community sources.
+        </p>
+
+        {guide.sections.map((section) => (
+          <>
+            <h2>{section.heading}</h2>
+            {section.body.map((paragraph) => <p>{paragraph}</p>)}
+          </>
+        ))}
+
+        <h2>Common mistakes to avoid</h2>
+        <ul>
+          {guide.pitfalls.map((pitfall) => <li>{pitfall}</li>)}
+        </ul>
+
+        <h2>Sources to verify before publishing updates</h2>
+        <ul>
+          {guide.sourcesToCheck.map((source) => <li>{source}</li>)}
+        </ul>
+      </article>
+
+      <aside class="sidebar">
+        <div class="card">
+          <p class="eyebrow">Search intent</p>
+          <h3>{guide.intent}</h3>
+          <p class="muted">Use this phrase as the weekly SERP screening seed before expanding the article.</p>
+        </div>
+        <div class="card">
+          <p class="eyebrow">Apps covered</p>
+          <div class="card-meta">
+            {guide.appFocus.map((app) => <span class="pill">{app}</span>)}
+          </div>
+        </div>
+        {related.length > 0 && (
+          <div class="card">
+            <p class="eyebrow">Related</p>
+            {related.map((item) => (
+              <p><a href={`/guides/${item.slug}/`}>{item.title}</a></p>
+            ))}
+          </div>
+        )}
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

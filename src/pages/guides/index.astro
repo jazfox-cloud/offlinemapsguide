@@ -1,0 +1,40 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { categories, guides } from "@/data/guides";
+---
+
+<BaseLayout
+  title="Offline Map Guides"
+  description="Scenario-based offline map setup guides for travel, hiking, road trips, privacy, and no-signal navigation."
+  canonical="/guides/"
+>
+  <section class="article-hero">
+    <div class="container">
+      <p class="eyebrow">Guide library</p>
+      <h1>Offline map guides by travel problem</h1>
+      <p class="lede">
+        Long-tail guides organized around the moment a traveler actually needs help: subway transfers, no-signal hikes, road trips, privacy, storage, and data backup.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="card-meta">
+        {categories.map((category) => <span class="pill">{category}</span>)}
+      </div>
+      <div class="grid three">
+        {guides.map((guide) => (
+          <a class="card" href={`/guides/${guide.slug}/`}>
+            <div class="card-meta">
+              <span class="pill">{guide.priority}</span>
+              <span class="pill">{guide.region}</span>
+            </div>
+            <h3>{guide.title}</h3>
+            <p>{guide.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,64 @@
+---
+import "../styles/global.css";
+import { navItems, site } from "@/data/site";
+
+type Props = {
+  title?: string;
+  description?: string;
+  canonical?: string;
+};
+
+const {
+  title = site.name,
+  description = site.description,
+  canonical = Astro.url.pathname
+} = Astro.props;
+
+const pageTitle = title === site.name ? title : `${title} | ${site.name}`;
+const canonicalUrl = new URL(canonical, site.url).toString();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <nav class="container nav" aria-label="Primary navigation">
+          <a class="brand" href="/" aria-label={`${site.name} home`}>
+            <span class="brand-mark">⌖</span>
+            <span>{site.name}</span>
+          </a>
+          <div class="nav-links">
+            {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+          </div>
+        </nav>
+      </header>
+
+      <main>
+        <slot />
+      </main>
+
+      <footer class="footer">
+        <div class="container footer-grid">
+          <p>© 2026 {site.name}. Practical offline navigation research for travelers.</p>
+          <div class="nav-links">
+            <a href="/editorial-policy/">Editorial policy</a>
+            <a href="/privacy/">Privacy</a>
+            <a href="/terms/">Terms</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

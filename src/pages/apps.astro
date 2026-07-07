@@ -1,0 +1,54 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const apps = [
+  {
+    name: "Organic Maps",
+    bestFor: "Simple offline walking, privacy-conscious travel, saved places",
+    caveat: "Transit and advanced outdoor layers are limited compared with specialist tools."
+  },
+  {
+    name: "OsmAnd",
+    bestFor: "Hiking, cycling, GPX routes, overlays, and configurable offline navigation",
+    caveat: "More powerful, but the setup curve is higher for casual travelers."
+  },
+  {
+    name: "Google Maps",
+    bestFor: "Familiar place search, saved lists, city orientation, and road trip backup",
+    caveat: "Offline mode does not preserve every live feature, especially transit and current business data."
+  },
+  {
+    name: "Kiwix",
+    bestFor: "Offline travel research, destination references, and wiki-style background reading",
+    caveat: "Not a navigation app and not suitable for time-sensitive official rules."
+  }
+];
+---
+
+<BaseLayout
+  title="Offline Map Apps"
+  description="A practical offline map app shortlist for travelers, hikers, privacy-focused users, and no-signal backup planning."
+  canonical="/apps/"
+>
+  <section class="article-hero">
+    <div class="container">
+      <p class="eyebrow">App shortlist</p>
+      <h1>Offline map apps by use case</h1>
+      <p class="lede">
+        The goal is not to crown one universal winner. Different trips need different offline strengths.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid two">
+      {apps.map((app) => (
+        <div class="card">
+          <h2>{app.name}</h2>
+          <p><strong>Best for:</strong> {app.bestFor}</p>
+          <p><strong>Caveat:</strong> {app.caveat}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

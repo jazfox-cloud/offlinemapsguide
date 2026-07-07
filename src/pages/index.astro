@@ -1,0 +1,129 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { categories, featuredGuides, guides } from "@/data/guides";
+import { site } from "@/data/site";
+
+const mvpCount = guides.filter((guide) => guide.priority === "MVP").length;
+---
+
+<BaseLayout title={site.name} description={site.description}>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow">Offline maps for real travel constraints</p>
+        <h1>Offline Maps Guide</h1>
+        <p class="lede">
+          Practical setup guides for travelers, hikers, and privacy-conscious users who need navigation to keep working when mobile data does not.
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="/guides/">Browse guides</a>
+          <a class="button secondary" href="/methodology/">How we research</a>
+        </div>
+      </div>
+
+      <div class="hero-panel" aria-label="Offline route preparation visual">
+        <div class="map-visual">
+          <div class="map-pin">↓</div>
+        </div>
+        <div class="offline-strip">
+          <div class="signal-row">
+            <span>Signal</span>
+            <strong>No service</strong>
+          </div>
+          <div class="signal-row">
+            <span>Map area</span>
+            <strong>Downloaded</strong>
+          </div>
+          <div class="signal-row">
+            <span>Trip notes</span>
+            <strong>Saved locally</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">MVP content map</p>
+          <h2>Start with long-tail travel problems</h2>
+        </div>
+        <p>
+          The site avoids invented first-person field tests. Each guide is framed as a researched setup workflow with official documentation, community feedback, and known limitations.
+        </p>
+      </div>
+
+      <div class="grid three">
+        {featuredGuides.map((guide) => (
+          <a class="card" href={`/guides/${guide.slug}/`}>
+            <div class="card-meta">
+              <span class="pill">{guide.region}</span>
+              <span class="pill">{guide.category}</span>
+            </div>
+            <h3>{guide.title}</h3>
+            <p>{guide.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Operating model</p>
+          <h2>Built for weekly SERP screening</h2>
+        </div>
+        <p>
+          New topics should pass a quick Google autocomplete and SERP composition check before writing, with priority given to weak forum results, thin old posts, and underserved app-specific questions.
+        </p>
+      </div>
+
+      <div class="grid three">
+        <div class="card">
+          <span class="pill">{mvpCount} MVP guides</span>
+          <h3>Seed the topical cluster</h3>
+          <p>Cover Japan transit, Europe hiking, privacy maps, eSIM backup, U.S. parks, and app comparisons first.</p>
+        </div>
+        <div class="card">
+          <span class="pill">{categories.length} categories</span>
+          <h3>Keep intent separated</h3>
+          <p>City transit, hiking, privacy, backpacking, and travel data content can interlink without collapsing into one generic listicle.</p>
+        </div>
+        <div class="card">
+          <span class="pill">No fake field tests</span>
+          <h3>Trust through sourcing</h3>
+          <p>Every article includes sources to verify before publication and caveats that prevent overclaiming.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Reader paths</p>
+          <h2>Trip-first navigation</h2>
+        </div>
+      </div>
+      <div class="grid three">
+        <a class="card" href="/guides/organic-maps-tokyo-subway-offline/">
+          <h3>Japan subway backup</h3>
+          <p>Set expectations for station exits, transfers, and offline walking around Tokyo.</p>
+        </a>
+        <a class="card" href="/guides/hiking-gps-no-signal-europe/">
+          <h3>Europe hiking without signal</h3>
+          <p>Prepare GPX files, map layers, battery strategy, and app fallbacks.</p>
+        </a>
+        <a class="card" href="/guides/offline-maps-esim-backup-travel/">
+          <h3>Offline maps plus eSIM</h3>
+          <p>Turn monetization-adjacent content into useful trip prep instead of a thin affiliate page.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

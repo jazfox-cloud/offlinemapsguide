@@ -5,6 +5,8 @@ const staticPages = [
   "/",
   "/guides/",
   "/apps/",
+  "/about/",
+  "/contact/",
   "/methodology/",
   "/editorial-policy/",
   "/privacy/",

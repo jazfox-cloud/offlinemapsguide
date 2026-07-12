@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import EmailLink from "@/components/EmailLink.astro";
 ---
 
 <BaseLayout title="Privacy Policy" description="Privacy policy for Offline Maps Guide." canonical="/privacy/">
@@ -26,7 +27,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
         Articles may link to app stores, official documentation, travel providers, or affiliate partners. Those sites have their own privacy practices.
       </p>
       <h2>Contact</h2>
-      <p>Privacy questions can be sent to <a href="mailto:hello@offlinemapsguide.com">hello@offlinemapsguide.com</a>.</p>
+      <p>Privacy questions can be sent to <EmailLink />.</p>
       <p>Last updated July 11, 2026.</p>
     </div>
   </section>

@@ -1,0 +1,14 @@
+<span class="email-link" data-email="aGVsbG9Ab2ZmbGluZW1hcHNndWlkZS5jb20=">Email address</span>
+
+<script is:inline>
+  document.querySelectorAll("[data-email]").forEach((element) => {
+    const encodedEmail = element.getAttribute("data-email");
+    if (!encodedEmail) return;
+
+    const email = atob(encodedEmail);
+    const link = document.createElement("a");
+    link.href = `mai${"lto:"}${email}`;
+    link.textContent = email;
+    element.replaceChildren(link);
+  });
+</script>

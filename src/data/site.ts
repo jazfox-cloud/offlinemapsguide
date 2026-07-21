@@ -3,7 +3,7 @@ export const site = {
   domain: "offlinemapsguide.com",
   url: "https://offlinemapsguide.com",
   description:
-    "Practical offline map guides for international travel, hiking, privacy, and no-signal navigation."
+    "Practical offline map setup guides for international travel, hiking, privacy, and reliable navigation when mobile data or signal is unavailable."
 };
 
 export const navItems = [

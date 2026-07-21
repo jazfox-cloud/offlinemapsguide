@@ -1,6 +1,7 @@
 export type Guide = {
   slug: string;
   title: string;
+  seoTitle: string;
   description: string;
   category: string;
   region: string;
@@ -20,6 +21,7 @@ export const guides: Guide[] = [
   {
     slug: "organic-maps-tokyo-subway-offline",
     title: "Organic Maps for Tokyo Subway Offline: Setup, Transfers, and Common Gaps",
+    seoTitle: "Organic Maps: Tokyo Subway Offline",
     description:
       "A practical setup guide for using Organic Maps around Tokyo stations without mobile data, with realistic limits around indoor routing and rail transfers.",
     category: "City transit",
@@ -65,6 +67,7 @@ export const guides: Guide[] = [
   {
     slug: "hiking-gps-no-signal-europe",
     title: "Hiking GPS With No Signal in Europe: Offline Map Stack for Safer Trails",
+    seoTitle: "Hiking GPS Offline in Europe",
     description:
       "How to prepare offline trail maps, GPX files, battery backups, and map app fallbacks for European hikes where cellular coverage is unreliable.",
     category: "Hiking",
@@ -110,6 +113,7 @@ export const guides: Guide[] = [
   {
     slug: "privacy-map-app-no-data-collection",
     title: "Privacy Map Apps With Less Data Collection: Offline Options Compared",
+    seoTitle: "Private Offline Map Apps Compared",
     description:
       "A practical comparison framework for travelers who want offline navigation with minimal tracking, fewer account requirements, and open map data.",
     category: "Privacy",
@@ -155,6 +159,7 @@ export const guides: Guide[] = [
   {
     slug: "google-maps-offline-japan-travel",
     title: "Google Maps Offline for Japan Travel: What Works and What Does Not",
+    seoTitle: "Google Maps Offline in Japan",
     description:
       "How to use Google Maps offline areas in Japan for saved places and walking backup, while avoiding common assumptions about transit and live data.",
     category: "Travel basics",
@@ -200,6 +205,7 @@ export const guides: Guide[] = [
   {
     slug: "best-offline-map-app-international-travel",
     title: "Best Offline Map App for International Travel: A Practical Shortlist",
+    seoTitle: "Best Offline Map Apps for Travel",
     description:
       "A short, non-hyped comparison of offline map apps for travelers, with use cases for cities, road trips, hiking, and privacy.",
     category: "App comparison",
@@ -245,6 +251,7 @@ export const guides: Guide[] = [
   {
     slug: "offline-maps-southeast-asia-backpacking",
     title: "Offline Maps for Southeast Asia Backpacking: Cities, Islands, and Border Crossings",
+    seoTitle: "Offline Maps for Southeast Asia",
     description:
       "How to prepare offline maps for Southeast Asia routes where islands, buses, ferries, and border crossings make navigation less predictable.",
     category: "Backpacking",
@@ -290,6 +297,7 @@ export const guides: Guide[] = [
   {
     slug: "offline-road-trip-maps-usa-national-parks",
     title: "Offline Road Trip Maps for U.S. National Parks: Navigation Without Cell Service",
+    seoTitle: "Offline Maps for U.S. National Parks",
     description:
       "A road trip preparation guide for national parks, scenic highways, trailheads, and lodging areas with weak or no mobile coverage.",
     category: "Road trips",
@@ -335,6 +343,7 @@ export const guides: Guide[] = [
   {
     slug: "kiwix-travel-wiki-offline",
     title: "Kiwix for Offline Travel Research: Pairing Wiki Guides With Offline Maps",
+    seoTitle: "Kiwix for Offline Travel Research",
     description:
       "How Kiwix can complement offline maps by saving travel reference material, destination context, and practical notes for no-signal trips.",
     category: "Offline research",
@@ -380,6 +389,7 @@ export const guides: Guide[] = [
   {
     slug: "offline-maps-apple-watch-travel",
     title: "Offline Maps on Apple Watch for Travel: Useful Backup or Battery Trap?",
+    seoTitle: "Offline Maps on Apple Watch",
     description:
       "A realistic planning guide for travelers considering watch-based navigation when phone signal, battery, or pocket access is limited.",
     category: "Gear",
@@ -425,6 +435,7 @@ export const guides: Guide[] = [
   {
     slug: "organic-maps-vs-osmand-travel",
     title: "Organic Maps vs OsmAnd for Travel: Which Offline Map Fits Your Trip?",
+    seoTitle: "Organic Maps vs. OsmAnd for Travel",
     description:
       "A travel-focused comparison of two OpenStreetMap-based apps, emphasizing setup effort, offline search, hiking features, and privacy tradeoffs.",
     category: "App comparison",
@@ -470,6 +481,7 @@ export const guides: Guide[] = [
   {
     slug: "offline-maps-esim-backup-travel",
     title: "Offline Maps and eSIMs: The Travel Backup Setup That Actually Works",
+    seoTitle: "Offline Maps and eSIM Travel Backup",
     description:
       "How to combine eSIM data with offline maps so navigation still works when activation, roaming, underground stations, or remote coverage fail.",
     category: "Travel data",
@@ -515,6 +527,7 @@ export const guides: Guide[] = [
   {
     slug: "offline-map-storage-phone-space",
     title: "How Much Phone Storage Do Offline Maps Need? A Traveler's Planning Guide",
+    seoTitle: "Offline Map Storage for Travel",
     description:
       "A storage planning guide for offline map downloads, reference files, GPX routes, photos, translation packs, and eSIM apps.",
     category: "Setup",

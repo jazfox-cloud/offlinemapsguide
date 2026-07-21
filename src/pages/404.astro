@@ -1,0 +1,22 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Page Not Found"
+  description="The requested page could not be found. Browse the Offline Maps Guide library for practical no-signal navigation advice."
+  canonical={false}
+  noindex
+>
+  <section class="article-hero">
+    <div class="container">
+      <p class="eyebrow">404 error</p>
+      <h1>Page not found</h1>
+      <p class="lede">The page may have moved or the address may be incorrect.</p>
+      <div class="hero-actions">
+        <a class="button" href="/guides/">Browse guides</a>
+        <a class="button secondary" href="/">Return home</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
